@@ -17,7 +17,8 @@ var gulp = require('gulp'),
 
 var path = {
 	watch: {
-		qml: './src/*.qml'
+		qml: './src/**',
+		core: './qmlcore/**/*.qml'
 	}
 };
 
@@ -54,7 +55,7 @@ gulp.task('build', [
 ]);
 
 gulp.task('watch', function(){
-	watch([path.watch.qml], function(event, cb) {
+	watch([path.watch.qml, path.watch.core], function(event, cb) {
 		gulp.start('qml:build');
 	});
 });
